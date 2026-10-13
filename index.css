@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@media print {
+  /* Hide non-printable layout elements */
+  header, 
+  nav, 
+  footer, 
+  .no-print, 
+  button, 
+  input,
+  .admin-banner,
+  .quick-notification {
+    display: none !important;
+  }
+
+  /* Force white background and black text */
+  body, #root, main {
+    background: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  /* Page break after each department section */
+  .dept-print-card {
+    page-break-after: always !important;
+    break-after: page !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    padding: 1rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .dept-print-card:last-child {
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+
+  /* Table styling for print */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+  }
+
+  th, td {
+    border: 1px solid #cbd5e1 !important;
+    padding: 6px 10px !important;
+    color: #0f172a !important;
+    background: transparent !important;
+    font-size: 11px !important;
+  }
+
+  th {
+    background-color: #f1f5f9 !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "SAMS PANCHAYAT COLLEGE, BARAGADA",
+  "description": "Secure online portal for admission process, student database, faculty management, spot round real-time seat tracking, HOD course editing, audit logs, and Google Sheets synchronization.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

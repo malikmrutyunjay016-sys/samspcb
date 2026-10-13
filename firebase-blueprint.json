@@ -1,0 +1,104 @@
+{
+  "entities": {
+    "Department": {
+      "title": "Department",
+      "description": "Academic department details and seat capacity",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "code": { "type": "string" },
+        "hodName": { "type": "string" },
+        "hodEmail": { "type": "string" },
+        "totalSeats": { "type": "number" },
+        "filledSeats": { "type": "number" },
+        "description": { "type": "string" }
+      },
+      "required": ["id", "name", "code", "totalSeats", "filledSeats"]
+    },
+    "Application": {
+      "title": "Admission Application",
+      "description": "UG e-admission and spot round application records",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "applicationNumber": { "type": "string" },
+        "studentName": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "phone": { "type": "string" },
+        "departmentId": { "type": "string" },
+        "departmentName": { "type": "string" },
+        "percentage": { "type": "number" },
+        "category": { "type": "string" },
+        "status": { "type": "string" },
+        "round": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "applicationNumber", "studentName", "email", "departmentId", "status"]
+    },
+    "Student": {
+      "title": "Student",
+      "description": "Enrolled student database records",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "rollNumber": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "departmentId": { "type": "string" },
+        "semester": { "type": "string" },
+        "phone": { "type": "string" }
+      },
+      "required": ["id", "rollNumber", "name", "departmentId"]
+    },
+    "Faculty": {
+      "title": "Faculty",
+      "description": "Faculty management directory",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "departmentId": { "type": "string" },
+        "designation": { "type": "string" },
+        "email": { "type": "string" }
+      },
+      "required": ["id", "name", "departmentId", "designation"]
+    },
+    "AuditLog": {
+      "title": "Audit Log",
+      "description": "Tracks all data changes made by users",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "action": { "type": "string" },
+        "details": { "type": "string" },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["id", "userId", "action", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/departments/{departmentId}": {
+      "schema": { "$ref": "Department" },
+      "description": "Departments collection"
+    },
+    "/applications/{applicationId}": {
+      "schema": { "$ref": "Application" },
+      "description": "Admission applications collection"
+    },
+    "/students/{studentId}": {
+      "schema": { "$ref": "Student" },
+      "description": "Students collection"
+    },
+    "/faculty/{facultyId}": {
+      "schema": { "$ref": "Faculty" },
+      "description": "Faculty directory collection"
+    },
+    "/auditLogs/{logId}": {
+      "schema": { "$ref": "AuditLog" },
+      "description": "Audit logs collection"
+    }
+  }
+}
